@@ -16,12 +16,13 @@
       font-family: 'Arial', sans-serif;
       background: #f5f7fb;
       color: #222;
+      line-height: 1.6;
     }
 
-    /* NAVIGATION MENU */
+    /* NAVIGATION MENU - FIXED FOR MOBILE */
     .main-nav {
       background: #ffffff;
-      padding: 20px 0;
+      padding: 15px 0;
       border-bottom: 1px solid rgba(148, 163, 184, 0.2);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       position: sticky;
@@ -39,18 +40,42 @@
     }
     
     .nav-logo {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #0a2a66;
       text-decoration: none;
+      white-space: nowrap;
+    }
+    
+    /* HAMBURGER MENU FOR MOBILE */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #0a2a66;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
     }
     
     .nav-links a {
-      margin-left: 30px;
       color: #444;
       text-decoration: none;
       font-weight: 500;
+      font-size: 15px;
+      padding: 5px 0;
       transition: color 0.3s;
+      white-space: nowrap;
     }
     
     .nav-links a:hover,
@@ -59,20 +84,49 @@
       border-bottom: 2px solid #0a2a66;
     }
     
+    /* MOBILE NAVIGATION */
     @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
+      .hamburger {
+        display: flex;
       }
       
       .nav-links {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
       }
       
       .nav-links a {
-        margin: 5px 10px;
+        padding: 10px 20px;
+        width: 90%;
+        text-align: center;
+        border-radius: 6px;
+      }
+      
+      .nav-links a:hover {
+        background: #f5f7fb;
+      }
+      
+      .nav-container {
+        padding: 0 15px;
       }
     }
 
@@ -85,7 +139,7 @@
       min-height: 80vh;
     }
 
-    /* HERO SECTION */
+    /* HERO SECTION - FIXED FOR MOBILE */
     .hero-container {
       display: flex;
       width: 100%;
@@ -96,7 +150,7 @@
     /* LEFT SIDE - TEXT CONTENT */
     .hero-content {
       flex: 1;
-      padding: 60px 60px;
+      padding: 60px 40px;
       max-width: 60%;
       display: flex;
       flex-direction: column;
@@ -111,7 +165,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
+      padding: 30px;
     }
 
     .hero-image-wrapper {
@@ -122,6 +176,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 8px;
     }
 
     .hero-image {
@@ -133,7 +188,7 @@
 
     /* TEXT STYLING */
     .hero-name {
-      font-size: 52px;
+      font-size: clamp(32px, 5vw, 52px); /* Responsive font size */
       line-height: 1.1;
       font-weight: 800;
       color: #0a2a66;
@@ -142,7 +197,7 @@
     }
 
     .hero-title {
-      font-size: 24px;
+      font-size: clamp(18px, 3vw, 24px); /* Responsive font size */
       line-height: 1.4;
       font-weight: 600;
       color: #1a3a7a;
@@ -152,9 +207,10 @@
     }
 
     .hero-sub {
-      font-size: 17px;
+      font-size: clamp(14px, 2vw, 17px); /* Responsive font size */
       color: #555;
       line-height: 1.7;
+      max-width: 90%;
     }
 
     .hero-sub span {
@@ -174,7 +230,7 @@
       text-align: center;
       color: #0a2a66;
       margin-bottom: 30px;
-      font-size: 28px;
+      font-size: clamp(24px, 4vw, 28px);
     }
 
     .links-grid {
@@ -186,7 +242,7 @@
     .link-card {
       background: #ffffff;
       border-radius: 12px;
-      padding: 30px;
+      padding: 25px;
       text-align: center;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       border: 1px solid rgba(148, 163, 184, 0.1);
@@ -219,57 +275,54 @@
       line-height: 1.5;
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE - FIXED HERO LAYOUT */
     @media (max-width: 768px) {
       .hero-container {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Photo on TOP, text below on mobile */
         min-height: auto;
+        padding: 20px 0;
       }
       
       .hero-content {
         max-width: 100%;
-        padding: 50px 40px;
+        padding: 30px 20px;
+        text-align: center;
+        align-items: center;
       }
       
       .hero-image-section {
         max-width: 100%;
-        height: 400px;
+        height: 300px;
         padding: 20px;
+        order: 1; /* Image first on mobile */
+      }
+      
+      .hero-content {
+        order: 2; /* Text second on mobile */
       }
       
       .hero-image-wrapper {
-        max-height: 360px;
+        max-height: 280px;
       }
       
-      .hero-name {
-        font-size: 42px;
-      }
-      
-      .hero-title {
-        font-size: 22px;
+      .hero-sub {
+        max-width: 100%;
       }
     }
 
     @media (max-width: 480px) {
       .hero-content {
-        padding: 30px 20px;
-      }
-      
-      .hero-name {
-        font-size: 36px;
-      }
-      
-      .hero-title {
-        font-size: 20px;
+        padding: 25px 15px;
       }
       
       .hero-image-section {
-        height: 300px;
-        padding: 10px;
+        height: 250px;
+        padding: 15px;
       }
       
       .links-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
       }
     }
 
@@ -284,8 +337,8 @@
     .section {
       background: #ffffff;
       border-radius: 12px;
-      padding: 32px 36px;
-      margin-bottom: 28px;
+      padding: 25px 30px;
+      margin-bottom: 25px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       border: 1px solid rgba(148, 163, 184, 0.1);
     }
@@ -293,7 +346,7 @@
     .section h2 {
       margin: 0 0 18px;
       color: #0a2a66;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
       padding-bottom: 12px;
       border-bottom: 2px solid rgba(10, 42, 102, 0.1);
@@ -304,24 +357,6 @@
       color: #444;
       line-height: 1.7;
       font-size: 16px;
-    }
-
-    .section ul {
-      margin: 8px 0 0;
-      padding-left: 22px;
-      line-height: 1.8;
-      color: #333;
-    }
-
-    .section li {
-      margin-bottom: 8px;
-    }
-
-    .section-note {
-      color: #666;
-      margin-bottom: 12px;
-      font-size: 15px;
-      font-style: italic;
     }
 
     .footer {
@@ -341,7 +376,14 @@
   <nav class="main-nav">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">Riddhesh Vartak</a>
-      <div class="nav-links">
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="nav-links" id="navLinks">
         <a href="index.html" class="active">Home</a>
         <a href="notes.html">Finance Notes</a>
         <a href="models.html">Models & Walkthroughs</a>
@@ -418,5 +460,24 @@
       </div>
     </main>
   </div>
+
+  <script>
+    // Mobile hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
