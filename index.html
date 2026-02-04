@@ -8,38 +8,69 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #fdfef6; /* Changed to hero background color for seamless look */
+      font-family: 'Arial', sans-serif;
+      background: #f5f7fb; /* Light gray background for the page */
       color: #222;
     }
 
-    /* FULL-WIDTH HERO SECTION */
-
-    .hero {
+    /* CONTAINER FOR ENTIRE HERO SECTION */
+    .hero-container {
       display: flex;
-      justify-content: space-between;
+      width: 100%;
+      background: #ffffff; /* White background for hero section */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* LEFT SIDE - TEXT CONTENT */
+    .hero-content {
+      flex: 1;
+      padding: 80px 60px;
+      max-width: 60%;
+      background: #ffffff;
+    }
+
+    /* RIGHT SIDE - IMAGE SECTION */
+    .hero-image-section {
+      flex: 1;
+      max-width: 40%;
+      background: #f5f7fb; /* Same as body background */
+      display: flex;
       align-items: center;
-      padding: 80px 8%;
-      background: #fdfef6;
-      min-height: 100vh;
+      justify-content: center;
+      padding: 40px;
     }
 
-    .hero-text {
-      max-width: 55%;
-      z-index: 1; /* Ensure text stays above image */
-      padding-right: 40px;
+    .hero-image-wrapper {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fb; /* Same as image section background */
     }
 
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* TEXT STYLING */
     .hero-name {
-      font-size: 48px;
-      line-height: 1.2;
-      font-weight: 700;
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 800;
       color: #0a2a66;
-      margin: 0 0 10px;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
     .hero-title {
@@ -47,126 +78,127 @@
       line-height: 1.4;
       font-weight: 600;
       color: #1a3a7a;
-      margin: 0 0 15px;
-      letter-spacing: 0.5px;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(10, 42, 102, 0.1);
     }
 
     .hero-sub {
-      font-size: 16px;
+      font-size: 17px;
       color: #555;
-      line-height: 1.6;
-      margin: 0;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
-    .hero-photo-wrapper {
-      position: absolute;
-      right: 8%;
-      top: 0;
-      bottom: 0;
-      width: 40%;
-      max-width: 500px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fdfef6; /* Same as hero background */
-    }
-
-    .hero-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+    .hero-sub span {
+      display: block;
+      margin-bottom: 10px;
     }
 
     /* MAIN CONTENT BLOCKS */
-
     .content {
       max-width: 1100px;
-      margin: 40px auto 60px;
+      margin: 60px auto;
       padding: 0 20px 40px;
-      position: relative; /* Ensures content stays below hero */
-      z-index: 2; /* Higher than image */
     }
 
     .section {
       background: #ffffff;
-      border-radius: 14px;
-      padding: 28px 30px;
-      margin-bottom: 24px;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.1);
     }
 
     .section h2 {
-      margin: 0 0 12px;
+      margin: 0 0 18px;
       color: #0a2a66;
-      font-size: 22px;
+      font-size: 24px;
+      font-weight: 700;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(10, 42, 102, 0.1);
     }
 
     .section p {
-      margin: 0 0 12px;
+      margin: 0 0 16px;
       color: #444;
       line-height: 1.7;
+      font-size: 16px;
     }
 
     .section ul {
-      margin: 4px 0 0;
-      padding-left: 20px;
-      line-height: 1.7;
+      margin: 8px 0 0;
+      padding-left: 22px;
+      line-height: 1.8;
       color: #333;
+    }
+
+    .section li {
+      margin-bottom: 8px;
     }
 
     .section-note {
       color: #666;
-      margin-bottom: 8px;
-      font-size: 14px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-style: italic;
     }
 
     .footer {
       text-align: center;
       color: #777;
       font-size: 14px;
-      padding: 20px 0 30px;
+      padding: 30px 0 40px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      margin-top: 40px;
     }
 
     /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero {
+    @media (max-width: 1024px) {
+      .hero-container {
         flex-direction: column;
-        text-align: center;
-        padding: 60px 6%;
-        position: relative;
       }
-
-      .hero-text {
+      
+      .hero-content {
         max-width: 100%;
-        padding-right: 0;
-        margin-bottom: 40px;
+        padding: 60px 40px;
       }
-
-      .hero-photo-wrapper {
-        position: relative;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 400px;
+      
+      .hero-image-section {
+        max-width: 100%;
         height: 400px;
-        margin: 0 auto;
+        padding: 20px;
       }
+      
+      .hero-image-wrapper {
+        max-height: 360px;
+      }
+    }
 
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 50px 30px;
+      }
+      
       .hero-name {
-        font-size: 40px;
+        font-size: 42px;
       }
       
       .hero-title {
         font-size: 22px;
       }
+      
+      .hero-image-section {
+        height: 350px;
+      }
     }
-    
-    @media (max-width: 600px) {
+
+    @media (max-width: 480px) {
+      .hero-content {
+        padding: 40px 20px;
+      }
+      
       .hero-name {
         font-size: 36px;
       }
@@ -175,9 +207,12 @@
         font-size: 20px;
       }
       
-      .hero-photo-wrapper {
-        height: 350px;
-        max-width: 350px;
+      .hero-image-section {
+        height: 300px;
+      }
+      
+      .section {
+        padding: 24px 28px;
       }
     }
   </style>
@@ -186,20 +221,22 @@
 <body>
 
   <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1 class="hero-name">Riddhesh Vartak</h1>
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-name">RIDDHESH VARTAK</h1>
       <div class="hero-title">Finance, Valuation & Corporate Finance</div>
       <p class="hero-sub">
-        ACCA (12/13) · CFA Level I Candidate (Appearing Nov)<br>
+        <span>ACCA (12/13) · CFA Level I Candidate (Appearing Nov)</span>
         Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
       </p>
     </div>
 
-    <div class="hero-photo-wrapper">
-      <img src="profile.jpg" alt="Riddhesh Vartak" class="hero-photo">
+    <div class="hero-image-section">
+      <div class="hero-image-wrapper">
+        <img src="profile.jpg" alt="Riddhesh Vartak" class="hero-image">
+      </div>
     </div>
-  </section>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main class="content">
