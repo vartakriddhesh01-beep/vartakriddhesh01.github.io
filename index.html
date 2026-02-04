@@ -6,89 +6,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #f3f6fb;
-      color: #222;
       margin: 0;
-      padding: 40px 20px;
+      background: #f5f7fb;
+      color: #222;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      border: none;
-    }
+    /* FULL-WIDTH HERO SECTION */
 
-    .header {
+    .hero {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 30px;
+      padding: 80px 8%;
+      background: #fdfef6;
+      border-bottom: 1px solid rgba(0,0,0,0.03);
     }
 
-    .header-text {
-      flex: 1;
+    .hero-text {
+      max-width: 55%;
     }
 
-    h1 {
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 700;
       color: #0a2a66;
-      margin: 0 0 8px;
+      margin: 0 0 15px;
     }
 
-    h2 {
-      color: #0a2a66;
-      margin-top: 40px;
+    .hero-tagline-main {
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
     }
 
-    .profile-pic {
-      width: 160px;
-      height: 160px;
+    .hero-sub {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .hero-photo-wrapper {
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
-    .tagline {
-      color: #555;
-      margin: 0;
-      line-height: 1.6;
+    /* MAIN CONTENT BLOCKS */
+
+    .content {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px 40px;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin: 35px 0;
+    .section {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.2);
     }
 
-    ul {
+    .section h2 {
+      margin: 0 0 12px;
+      color: #0a2a66;
+      font-size: 22px;
+    }
+
+    .section p {
+      margin: 0 0 12px;
+      color: #444;
       line-height: 1.7;
+    }
+
+    .section ul {
+      margin: 4px 0 0;
       padding-left: 20px;
+      line-height: 1.7;
+      color: #333;
     }
 
     .section-note {
-      color: #444;
-      margin-bottom: 10px;
+      color: #666;
+      margin-bottom: 8px;
+      font-size: 14px;
     }
 
     .footer {
       text-align: center;
       color: #777;
       font-size: 14px;
-      margin-top: 50px;
+      padding: 20px 0 30px;
     }
 
-    @media (max-width: 600px) {
-      .header {
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
         flex-direction: column-reverse;
         text-align: center;
+        padding: 60px 6%;
       }
 
-      .header-text {
-        text-align: center;
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero-photo-wrapper {
+        margin-bottom: 24px;
+      }
+
+      .hero-title {
+        font-size: 32px;
       }
     }
   </style>
@@ -96,92 +148,96 @@
 
 <body>
 
-  <div class="container">
-
-    <div class="header">
-      <div class="header-text">
-        <h1>Riddhesh Vartak</h1>
-        <p class="tagline">
-          ACCA (12/13) | CFA Level I Candidate (Appearing Nov)<br>
-          Finance • Valuation • Corporate Finance • Markets
-        </p>
-      </div>
-
-      <img src="profile.jpg" alt="Riddhesh Vartak" class="profile-pic">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-tagline-main">Riddhesh Vartak</div>
+      <h1 class="hero-title">Finance, Valuation & Corporate Finance</h1>
+      <p class="hero-sub">
+        ACCA (12/13) · CFA Level I Candidate (Appearing Nov)<br>
+        Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
+      </p>
     </div>
 
-    <hr>
+    <div class="hero-photo-wrapper">
+      <img src="profile.jpg" alt="Riddhesh Vartak" class="hero-photo">
+    </div>
+  </section>
 
-    <h2>About Me</h2>
-    <p>
-      I am a finance professional focused on valuation, financial modelling,
-      and corporate finance. My interests lie in understanding businesses
-      through fundamentals, cash flows, capital allocation, and long-term value
-      creation.
-    </p>
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-    <hr>
+    <section class="section">
+      <h2>About Me</h2>
+      <p>
+        I am a finance professional focused on valuation, financial modelling, and corporate finance.
+        My interests lie in understanding businesses through fundamentals, cash flows, capital allocation,
+        and long-term value creation.
+      </p>
+    </section>
 
-    <h2>Financial Models & Projects</h2>
-    <p class="section-note">Hands-on models built with structured assumptions and clear outputs:</p>
-    <ul>
-      <li>DCF Valuation Models (Equity & Firm)</li>
-      <li>M&A Analysis & Accretion / Dilution</li>
-      <li>LBO Models</li>
-      <li>Comparable Companies & Precedent Transactions</li>
-      <li>Banking & Renewable Energy Models</li>
-      <li>HUL Financial Model</li>
-    </ul>
+    <section class="section">
+      <h2>Financial Models & Projects</h2>
+      <p class="section-note">Hands-on models built with structured assumptions and clear outputs:</p>
+      <ul>
+        <li>DCF Valuation Models (Equity & Firm)</li>
+        <li>M&A Analysis & Accretion / Dilution</li>
+        <li>LBO Models</li>
+        <li>Comparable Companies & Precedent Transactions</li>
+        <li>Banking & Renewable Energy Models</li>
+        <li>HUL Financial Model</li>
+      </ul>
+    </section>
 
-    <hr>
+    <section class="section">
+      <h2>Sector Tracking</h2>
+      <ul>
+        <li>Automobile</li>
+        <li>QSR (Quick Service Restaurants)</li>
+        <li>Banking & Financial Services</li>
+        <li>Consumer & FMCG</li>
+        <li>Renewable Energy</li>
+      </ul>
+    </section>
 
-    <h2>Sector Tracking</h2>
-    <ul>
-      <li>Automobile</li>
-      <li>QSR (Quick Service Restaurants)</li>
-      <li>Banking & Financial Services</li>
-      <li>Consumer & FMCG</li>
-      <li>Renewable Energy</li>
-    </ul>
+    <section class="section">
+      <h2>Model Walkthroughs & Summaries</h2>
+      <ul>
+        <li>Key assumptions and value drivers</li>
+        <li>Revenue, margin, and capital structure logic</li>
+        <li>Sensitivity and scenario analysis</li>
+        <li>Investment thesis and risk factors</li>
+      </ul>
+    </section>
 
-    <hr>
+    <section class="section">
+      <h2>Learning & Investment Philosophy</h2>
+      <p>
+        Influenced by Aswath Damodaran’s approach to valuation, corporate finance, and investing — focusing on narrative,
+        numbers, and disciplined decision-making.
+      </p>
+      <ul>
+        <li>Intrinsic valuation over relative noise</li>
+        <li>Understanding risk beyond beta</li>
+        <li>Capital allocation and business quality</li>
+        <li>Long-term, process-driven investing</li>
+      </ul>
+    </section>
 
-    <h2>Model Walkthroughs & Summaries</h2>
-    <ul>
-      <li>Key assumptions and value drivers</li>
-      <li>Revenue, margin, and capital structure logic</li>
-      <li>Sensitivity and scenario analysis</li>
-      <li>Investment thesis and risk factors</li>
-    </ul>
-
-    <hr>
-
-    <h2>Learning & Investment Philosophy</h2>
-    <p>
-      Influenced by Aswath Damodaran’s approach to valuation, corporate finance,
-      and investing — focusing on narrative, numbers, and disciplined decision-making.
-    </p>
-    <ul>
-      <li>Intrinsic valuation over relative noise</li>
-      <li>Understanding risk beyond beta</li>
-      <li>Capital allocation and business quality</li>
-      <li>Long-term, process-driven investing</li>
-    </ul>
-
-    <hr>
-
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Advanced Excel & Financial Modelling</li>
-      <li>Python for finance & analysis</li>
-      <li>Valuation, Corporate Finance, Equity Research</li>
-    </ul>
+    <section class="section">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Advanced Excel & Financial Modelling</li>
+        <li>Python for finance & analysis</li>
+        <li>Valuation, Corporate Finance, Equity Research</li>
+      </ul>
+    </section>
 
     <div class="footer">
       © 2026 Riddhesh Vartak · Built with GitHub Pages
     </div>
 
-  </div>
+  </main>
 
 </body>
 </html>
