@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Notes | Riddhesh Vartak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* COPY ALL THE CSS FROM INDEX.HTML - SAME STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    /* NAVIGATION MENU */
+    .main-nav {
+      background: #ffffff;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0a2a66;
+      text-decoration: none;
+    }
+    
+    .nav-links a {
+      margin-left: 30px;
+      color: #444;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0a2a66;
+      border-bottom: 2px solid #0a2a66;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 5px 10px;
+      }
+    }
+
+    /* MAIN CONTENT AREA */
+    .main-content-area {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      min-height: 80vh;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, #0a2a66 0%, #1a3a7a 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      background: #ffffff;
+    }
+
+    .section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      color: #0a2a66;
+      font-size: 24px;
+      font-weight: 700;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(10, 42, 102, 0.1);
+    }
+
+    .section p {
+      margin: 0 0 16px;
+      color: #444;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .section ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+    }
+
+    .section-note {
+      color: #666;
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .note-category {
+      background: #f8fafc;
+      border-left: 4px solid #0a2a66;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .note-category h3 {
+      color: #0a2a66;
+      margin-bottom: 10px;
+    }
+
+    .download-link {
+      display: inline-block;
+      background: #0a2a66;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .download-link:hover {
+      background: #1a3a7a;
+    }
+
+    .footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      padding: 30px 0 40px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      margin-top: 40px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .page-header {
+        padding: 40px 20px;
+      }
+      
+      .page-header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION MENU -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Riddhesh Vartak</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="notes.html" class="active">Finance Notes</a>
+        <a href="models.html">Models & Walkthroughs</a>
+        <a href="skills.html">Technical Skills</a>
+        <a href="sectors.html">Sector Tracking</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT AREA -->
+  <div class="main-content-area">
+    
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Finance Notes & Resources</h1>
+      <p>Valuation principles, corporate finance concepts, and investment philosophy inspired by Aswath Damodaran</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <section class="section">
+        <h2>Valuation Principles</h2>
+        <div class="note-category">
+          <h3>Intrinsic Valuation</h3>
+          <ul>
+            <li>Discounted Cash Flow (DCF) methodology</li>
+            <li>Free Cash Flow to Firm (FCFF) vs Free Cash Flow to Equity (FCFE)</li>
+            <li>Terminal value calculations: Perpetuity growth vs Exit multiples</li>
+            <li>Cost of capital: WACC, Cost of equity, Cost of debt</li>
+          </ul>
+        </div>
+
+        <div class="note-category">
+          <h3>Relative Valuation</h3>
+          <ul>
+            <li>Comparable company analysis</li>
+            <li>Precedent transactions</li>
+            <li>Valuation multiples: P/E, EV/EBITDA, P/B, P/S</li>
+            <li>Normalizing adjustments and controlling premiums</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Corporate Finance</h2>
+        <div class="note-category">
+          <h3>Capital Structure</h3>
+          <ul>
+            <li>Optimal debt-equity mix</li>
+            <li>Trade-off theory: Tax benefits vs Bankruptcy costs</li>
+            <li>Pecking order theory</li>
+            <li>Leveraged buyouts (LBOs) and recapitalizations</li>
+          </ul>
+        </div>
+
+        <div class="note-category">
+          <h3>Capital Budgeting</h3>
+          <ul>
+            <li>Net Present Value (NPV)</li>
+            <li>Internal Rate of Return (IRR)</li>
+            <li>Payback period and discounted payback</li>
+            <li>Real options in investment decisions</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Investment Philosophy</h2>
+        <div class="note-category">
+          <h3>Damodaran's Framework</h3>
+          <ul>
+            <li>Narrative-driven investing</li>
+            <li>Margin of safety concept</li>
+            <li>Process over outcome</li>
+            <li>Long-term value creation</li>
+          </ul>
+        </div>
+
+        <div class="note-category">
+          <h3>Risk Assessment</h3>
+          <ul>
+            <li>Beyond beta: Business risk, financial risk</li>
+            <li>Country risk and currency risk</li>
+            <li>Narrative risk and storytelling</li>
+            <li>Scenario analysis and stress testing</li>
+          </ul>
+        </div>
+
+        <p style="margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+          <em>"The essence of valuation is storytelling with numbers. A good valuation is a narrative that is grounded in numbers, and a good narrative needs numbers to give it discipline."</em> — Aswath Damodaran
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Download Resources</h2>
+        <p>Access my curated collection of finance resources and notes:</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+          <a href="#" class="download-link">Valuation Handbook (PDF)</a>
+          <a href="#" class="download-link">Corporate Finance Notes</a>
+          <a href="#" class="download-link">Investment Checklist</a>
+          <a href="#" class="download-link">Excel Templates</a>
+        </div>
+        <p class="section-note" style="margin-top: 20px;">Note: Upload your PDF files to GitHub and update the links above</p>
+      </section>
+
+      <div class="footer">
+        © 2026 Riddhesh Vartak · Built with GitHub Pages
+      </div>
+    </main>
+  </div>
+</body>
+</html>
