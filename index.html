@@ -1,483 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Riddhesh Vartak | Finance & Valuation Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f5f7fb;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    /* NAVIGATION MENU - FIXED FOR MOBILE */
-    .main-nav {
-      background: #ffffff;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .nav-logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: #0a2a66;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    
-    /* HAMBURGER MENU FOR MOBILE */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
-    }
-    
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #0a2a66;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-    
-    .nav-links a {
-      color: #444;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      padding: 5px 0;
-      transition: color 0.3s;
-      white-space: nowrap;
-    }
-    
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #0a2a66;
-      border-bottom: 2px solid #0a2a66;
-    }
-    
-    /* MOBILE NAVIGATION */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-      
-      .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-      }
-      
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .nav-links a {
-        padding: 10px 20px;
-        width: 90%;
-        text-align: center;
-        border-radius: 6px;
-      }
-      
-      .nav-links a:hover {
-        background: #f5f7fb;
-      }
-      
-      .nav-container {
-        padding: 0 15px;
-      }
-    }
-
-    /* MAIN CONTENT AREA */
-    .main-content-area {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: #ffffff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      min-height: 80vh;
-    }
-
-    /* HERO SECTION - FIXED FOR MOBILE */
-    .hero-container {
-      display: flex;
-      width: 100%;
-      min-height: 500px;
-      background: #ffffff;
-    }
-
-    /* LEFT SIDE - TEXT CONTENT */
-    .hero-content {
-      flex: 1;
-      padding: 60px 40px;
-      max-width: 60%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* RIGHT SIDE - IMAGE SECTION */
-    .hero-image-section {
-      flex: 1;
-      max-width: 40%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-
-    .hero-image-wrapper {
-      width: 100%;
-      height: 100%;
-      max-height: 400px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* TEXT STYLING */
-    .hero-name {
-      font-size: clamp(32px, 5vw, 52px); /* Responsive font size */
-      line-height: 1.1;
-      font-weight: 800;
-      color: #0a2a66;
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-title {
-      font-size: clamp(18px, 3vw, 24px); /* Responsive font size */
-      line-height: 1.4;
-      font-weight: 600;
-      color: #1a3a7a;
-      margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid rgba(10, 42, 102, 0.1);
-    }
-
-    .hero-sub {
-      font-size: clamp(14px, 2vw, 17px); /* Responsive font size */
-      color: #555;
-      line-height: 1.7;
-      max-width: 90%;
-    }
-
-    .hero-sub span {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-
-    /* QUICK LINKS SECTION */
-    .quick-links {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .quick-links h2 {
-      text-align: center;
-      color: #0a2a66;
-      margin-bottom: 30px;
-      font-size: clamp(24px, 4vw, 28px);
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .link-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .link-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-    }
-
-    .link-icon {
-      font-size: 40px;
-      color: #0a2a66;
-      margin-bottom: 15px;
-    }
-
-    .link-card h3 {
-      color: #0a2a66;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .link-card p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    /* RESPONSIVE - FIXED HERO LAYOUT */
-    @media (max-width: 768px) {
-      .hero-container {
-        flex-direction: column-reverse; /* Photo on TOP, text below on mobile */
-        min-height: auto;
-        padding: 20px 0;
-      }
-      
-      .hero-content {
-        max-width: 100%;
-        padding: 30px 20px;
-        text-align: center;
-        align-items: center;
-      }
-      
-      .hero-image-section {
-        max-width: 100%;
-        height: 300px;
-        padding: 20px;
-        order: 1; /* Image first on mobile */
-      }
-      
-      .hero-content {
-        order: 2; /* Text second on mobile */
-      }
-      
-      .hero-image-wrapper {
-        max-height: 280px;
-      }
-      
-      .hero-sub {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content {
-        padding: 25px 15px;
-      }
-      
-      .hero-image-section {
-        height: 250px;
-        padding: 15px;
-      }
-      
-      .links-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-    }
-
-    /* MAIN CONTENT BLOCKS */
-    .content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-      background: #ffffff;
-    }
-
-    .section {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 25px 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-    }
-
-    .section h2 {
-      margin: 0 0 18px;
-      color: #0a2a66;
-      font-size: 22px;
-      font-weight: 700;
-      padding-bottom: 12px;
-      border-bottom: 2px solid rgba(10, 42, 102, 0.1);
-    }
-
-    .section p {
-      margin: 0 0 16px;
-      color: #444;
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    .footer {
-      text-align: center;
-      color: #777;
-      font-size: 14px;
-      padding: 30px 0 40px;
-      border-top: 1px solid rgba(148, 163, 184, 0.2);
-      margin-top: 40px;
-      background: #ffffff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhesh Vartak - Finance Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- NAVIGATION MENU -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">Riddhesh Vartak</a>
-      
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
-        <a href="notes.html">Finance Notes</a>
-        <a href="models.html">Models & Walkthroughs</a>
-        <a href="skills.html">Technical Skills</a>
-        <a href="sectors.html">Sector Tracking</a>
-      </div>
+    <div class="portfolio-card">
+        <!-- HEADER WITH BLUE BACKGROUND - PHOTO FIXED -->
+        <header class="portfolio-header">
+            <div class="header-content">
+                <img src="profile.jpg" alt="Riddhesh Vartak" class="profile-img" onerror="this.src='https://via.placeholder.com/160x160?text=RV'">
+                <div class="header-text">
+                    <h1>Riddhesh Vartak</h1>
+                    <h2>Finance, Valuation & Corporate Finance</h2>
+                    <div class="badges">
+                        <span class="badge">ACCA (12/13)</span>
+                        <span class="badge">CFA Level I Candidate</span>
+                        <span class="badge">Appearing Nov</span>
+                    </div>
+                    <div class="focus-text">
+                        Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION - CLEAN -->
+        <nav class="site-nav">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="notes.html">Finance Notes</a></li>
+                <li><a href="models.html">Models & Walkthroughs</a></li>
+                <li><a href="skills.html">Technical Skills</a></li>
+                <li><a href="sectors.html">Sector Tracking</a></li>
+            </ul>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-area">
+            <!-- QUICK ACCESS SECTION -->
+            <h2 class="section-title">Explore My Work</h2>
+            
+            <div class="cards-grid">
+                <div class="info-card" onclick="window.location='notes.html'">
+                    <div class="card-icon">📚</div>
+                    <h3>Finance Notes</h3>
+                    <p>Valuation principles, corporate finance concepts, and investment philosophy</p>
+                </div>
+
+                <div class="info-card" onclick="window.location='models.html'">
+                    <div class="card-icon">📊</div>
+                    <h3>Models & Walkthroughs</h3>
+                    <p>DCF, M&A, LBO models with detailed analysis and assumptions</p>
+                </div>
+
+                <div class="info-card" onclick="window.location='skills.html'">
+                    <div class="card-icon">💻</div>
+                    <h3>Technical Skills</h3>
+                    <p>Excel, Python, financial modelling, and valuation techniques</p>
+                </div>
+
+                <div class="info-card" onclick="window.location='sectors.html'">
+                    <div class="card-icon">📈</div>
+                    <h3>Sector Tracking</h3>
+                    <p>Automobile, Banking, FMCG, QSR, and Renewable Energy sectors</p>
+                </div>
+            </div>
+
+            <!-- ABOUT ME SECTION - FROM YOUR README -->
+            <div class="content-block">
+                <h2>About Me</h2>
+                <p>I am a finance professional focused on valuation, financial modeling, and corporate finance. My interests lie in understanding businesses through fundamentals, cash flows, and capital allocation decisions.</p>
+                <p>Alongside finance, I actively follow geopolitics and maintain discipline through weightlifting and fitness.</p>
+            </div>
+
+            <!-- AREAS OF WORK - FROM YOUR README -->
+            <div class="content-block">
+                <h2>Areas of Work</h2>
+                <ul class="work-items">
+                    <li>Valuation (DCF, Relative Valuation)</li>
+                    <li>M&A and LBO Modeling</li>
+                    <li>Financial Statement Analysis</li>
+                    <li>Sector Research & Tracking</li>
+                    <li>Python for Finance</li>
+                </ul>
+            </div>
+
+            <!-- PORTFOLIO SECTIONS - FROM YOUR README -->
+            <div class="content-block">
+                <h2>Portfolio Sections</h2>
+                <ul class="work-items">
+                    <li><strong>Valuation & Modeling</strong> – DCF, M&A, LBO, Banking, Renewable Energy models</li>
+                    <li><strong>Sector Tracking</strong> – Automobile, QSR, Banking, FMCG, Renewables</li>
+                    <li><strong>Model Walkthroughs</strong> – Key assumptions, drivers, and insights</li>
+                    <li><strong>Learnings</strong> – Valuation, investment philosophy, and corporate finance concepts inspired by Aswath Damodaran</li>
+                </ul>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="contact-info">
+                <h2 style="color: #1e3a8a; margin-bottom: 20px;">Contact</h2>
+                <p><strong>LinkedIn:</strong> <em>(add link later)</em></p>
+                <p><strong>Email:</strong> <em>(add later)</em></p>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                © 2026 Riddhesh Vartak · Built with GitHub Pages
+            </footer>
+        </main>
     </div>
-  </nav>
 
-  <!-- MAIN CONTENT AREA -->
-  <div class="main-content-area">
-    
-    <!-- HERO SECTION -->
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-name">RIDDHESH VARTAK</h1>
-        <div class="hero-title">Finance, Valuation & Corporate Finance</div>
-        <p class="hero-sub">
-          <span>ACCA (12/13) · CFA Level I Candidate (Appearing Nov)</span>
-          Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
-        </p>
-      </div>
+    <script>
+        // Highlight current page in navigation
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
 
-      <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-          <img src="profile.jpg" alt="Riddhesh Vartak" class="hero-image">
-        </div>
-      </div>
-    </div>
-
-    <!-- QUICK LINKS TO SECTIONS -->
-    <div class="quick-links">
-      <h2>Explore My Work</h2>
-      <div class="links-grid">
-        <a href="notes.html" class="link-card">
-          <div class="link-icon">📚</div>
-          <h3>Finance Notes</h3>
-          <p>Valuation principles, corporate finance concepts, and investment philosophy</p>
-        </a>
-        
-        <a href="models.html" class="link-card">
-          <div class="link-icon">📊</div>
-          <h3>Models & Walkthroughs</h3>
-          <p>DCF, LBO, M&A models with detailed analysis and assumptions</p>
-        </a>
-        
-        <a href="skills.html" class="link-card">
-          <div class="link-icon">💻</div>
-          <h3>Technical Skills</h3>
-          <p>Excel, Python, financial modelling, and valuation techniques</p>
-        </a>
-        
-        <a href="sectors.html" class="link-card">
-          <div class="link-icon">📈</div>
-          <h3>Sector Tracking</h3>
-          <p>Automobile, Banking, FMCG, QSR, and Renewable Energy sectors</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="content">
-      <section class="section">
-        <h2>About Me</h2>
-        <p>
-          I am a finance professional focused on valuation, financial modelling, and corporate finance.
-          My interests lie in understanding businesses through fundamentals, cash flows, capital allocation,
-          and long-term value creation.
-        </p>
-      </section>
-
-      <div class="footer">
-        © 2026 Riddhesh Vartak · Built with GitHub Pages
-      </div>
-    </main>
-  </div>
-
-  <script>
-    // Mobile hamburger menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    });
-    
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-      });
-    });
-  </script>
+        // Fix for profile image if it fails to load
+        const profileImg = document.querySelector('.profile-img');
+        profileImg.onerror = function() {
+            this.src = 'https://via.placeholder.com/160x160?text=RV';
+        };
+    </script>
 </body>
 </html>
