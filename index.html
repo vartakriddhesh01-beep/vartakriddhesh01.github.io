@@ -1,132 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riddhesh Vartak - Finance Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Riddhesh Vartak | Finance & Valuation Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f2f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* MAIN CONTAINER - Removes A4 paper look */
+    .main-content-area {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    /* NAVIGATION */
+    .main-nav {
+      background: white;
+      padding: 15px 30px;
+      border-bottom: 1px solid #eef2f6;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0a2540;
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0a2540;
+    }
+
+    /* HERO SECTION - FIXED PHOTO BACKGROUND */
+    .hero-container {
+      display: flex;
+      background: linear-gradient(135deg, #0a2540 0%, #1a3b5c 100%);
+      color: white;
+      min-height: 400px;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-name {
+      font-size: 48px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title {
+      font-size: 24px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-credentials {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .hero-credential {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-description {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      line-height: 1.6;
+      border-left: 4px solid rgba(255,255,255,0.3);
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+
+    .hero-image-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .hero-image-wrapper {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      background: white;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* QUICK LINKS SECTION - REMOVES LINES */
+    .quick-links {
+      padding: 40px;
+    }
+
+    .quick-links h2 {
+      color: #0a2540;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .quick-links h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #0a2540, #1a3b5c);
+      border-radius: 2px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .link-card {
+      background: #f8fafd;
+      border-radius: 15px;
+      padding: 30px 25px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(10,37,64,0.1);
+      border-color: #0a2540;
+    }
+
+    .link-icon {
+      font-size: 40px;
+      color: #0a2540;
+      margin-bottom: 15px;
+    }
+
+    .link-card h3 {
+      color: #0a2540;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .link-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* CONTENT SECTIONS */
+    .content {
+      padding: 0 40px 40px;
+    }
+
+    .section {
+      background: #f8fafd;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      border: 1px solid #eef2f6;
+    }
+
+    .section h2 {
+      color: #0a2540;
+      font-size: 22px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eef2f6;
+    }
+
+    .section p {
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      list-style: none;
+    }
+
+    .section li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+      color: #555;
+    }
+
+    .section li:before {
+      content: "•";
+      color: #0a2540;
+      font-weight: bold;
+      position: absolute;
+      left: 5px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      border-top: 1px solid #eef2f6;
+      background: white;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      
+      .hero-content {
+        padding: 30px 20px;
+        align-items: center;
+      }
+      
+      .hero-credentials {
+        justify-content: center;
+      }
+      
+      .hero-description {
+        text-align: left;
+      }
+      
+      .hero-image-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .quick-links {
+        padding: 30px 20px;
+      }
+      
+      .content {
+        padding: 0 20px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: 36px;
+      }
+      
+      .hero-title {
+        font-size: 20px;
+      }
+      
+      .hero-credentials {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-credential {
+        width: fit-content;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="portfolio-card">
-        <!-- HEADER WITH BLUE BACKGROUND - PHOTO FIXED -->
-        <header class="portfolio-header">
-            <div class="header-content">
-                <img src="profile.jpg" alt="Riddhesh Vartak" class="profile-img" onerror="this.src='https://via.placeholder.com/160x160?text=RV'">
-                <div class="header-text">
-                    <h1>Riddhesh Vartak</h1>
-                    <h2>Finance, Valuation & Corporate Finance</h2>
-                    <div class="badges">
-                        <span class="badge">ACCA (12/13)</span>
-                        <span class="badge">CFA Level I Candidate</span>
-                        <span class="badge">Appearing Nov</span>
-                    </div>
-                    <div class="focus-text">
-                        Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
-                    </div>
-                </div>
-            </div>
-        </header>
+  <div class="main-content-area">
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Riddhesh Vartak</a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="notes.html">Finance Notes</a>
+          <a href="models.html">Models & Walkthroughs</a>
+          <a href="skills.html">Technical Skills</a>
+          <a href="sectors.html">Sector Tracking</a>
+        </div>
+      </div>
+    </nav>
 
-        <!-- NAVIGATION - CLEAN -->
-        <nav class="site-nav">
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="notes.html">Finance Notes</a></li>
-                <li><a href="models.html">Models & Walkthroughs</a></li>
-                <li><a href="skills.html">Technical Skills</a></li>
-                <li><a href="sectors.html">Sector Tracking</a></li>
-            </ul>
-        </nav>
-
-        <!-- MAIN CONTENT -->
-        <main class="main-area">
-            <!-- QUICK ACCESS SECTION -->
-            <h2 class="section-title">Explore My Work</h2>
-            
-            <div class="cards-grid">
-                <div class="info-card" onclick="window.location='notes.html'">
-                    <div class="card-icon">📚</div>
-                    <h3>Finance Notes</h3>
-                    <p>Valuation principles, corporate finance concepts, and investment philosophy</p>
-                </div>
-
-                <div class="info-card" onclick="window.location='models.html'">
-                    <div class="card-icon">📊</div>
-                    <h3>Models & Walkthroughs</h3>
-                    <p>DCF, M&A, LBO models with detailed analysis and assumptions</p>
-                </div>
-
-                <div class="info-card" onclick="window.location='skills.html'">
-                    <div class="card-icon">💻</div>
-                    <h3>Technical Skills</h3>
-                    <p>Excel, Python, financial modelling, and valuation techniques</p>
-                </div>
-
-                <div class="info-card" onclick="window.location='sectors.html'">
-                    <div class="card-icon">📈</div>
-                    <h3>Sector Tracking</h3>
-                    <p>Automobile, Banking, FMCG, QSR, and Renewable Energy sectors</p>
-                </div>
-            </div>
-
-            <!-- ABOUT ME SECTION - FROM YOUR README -->
-            <div class="content-block">
-                <h2>About Me</h2>
-                <p>I am a finance professional focused on valuation, financial modeling, and corporate finance. My interests lie in understanding businesses through fundamentals, cash flows, and capital allocation decisions.</p>
-                <p>Alongside finance, I actively follow geopolitics and maintain discipline through weightlifting and fitness.</p>
-            </div>
-
-            <!-- AREAS OF WORK - FROM YOUR README -->
-            <div class="content-block">
-                <h2>Areas of Work</h2>
-                <ul class="work-items">
-                    <li>Valuation (DCF, Relative Valuation)</li>
-                    <li>M&A and LBO Modeling</li>
-                    <li>Financial Statement Analysis</li>
-                    <li>Sector Research & Tracking</li>
-                    <li>Python for Finance</li>
-                </ul>
-            </div>
-
-            <!-- PORTFOLIO SECTIONS - FROM YOUR README -->
-            <div class="content-block">
-                <h2>Portfolio Sections</h2>
-                <ul class="work-items">
-                    <li><strong>Valuation & Modeling</strong> – DCF, M&A, LBO, Banking, Renewable Energy models</li>
-                    <li><strong>Sector Tracking</strong> – Automobile, QSR, Banking, FMCG, Renewables</li>
-                    <li><strong>Model Walkthroughs</strong> – Key assumptions, drivers, and insights</li>
-                    <li><strong>Learnings</strong> – Valuation, investment philosophy, and corporate finance concepts inspired by Aswath Damodaran</li>
-                </ul>
-            </div>
-
-            <!-- CONTACT SECTION -->
-            <div class="contact-info">
-                <h2 style="color: #1e3a8a; margin-bottom: 20px;">Contact</h2>
-                <p><strong>LinkedIn:</strong> <em>(add link later)</em></p>
-                <p><strong>Email:</strong> <em>(add later)</em></p>
-            </div>
-
-            <!-- FOOTER -->
-            <footer class="footer">
-                © 2026 Riddhesh Vartak · Built with GitHub Pages
-            </footer>
-        </main>
+    <!-- HERO SECTION WITH FIXED PHOTO -->
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-name">Riddhesh Vartak</h1>
+        <div class="hero-title">Finance, Valuation & Corporate Finance</div>
+        <div class="hero-credentials">
+          <span class="hero-credential">ACCA (12/13)</span>
+          <span class="hero-credential">CFA Level I Candidate</span>
+          <span class="hero-credential">Appearing Nov</span>
+        </div>
+        <div class="hero-description">
+          Focused on valuation, financial modelling, and corporate finance with a long-term, fundamentals-driven approach.
+        </div>
+      </div>
+      <div class="hero-image-section">
+        <div class="hero-image-wrapper">
+          <img src="profile.jpg" alt="Riddhesh Vartak" class="hero-image" onerror="this.src='https://via.placeholder.com/280x280?text=RV'">
+        </div>
+      </div>
     </div>
 
-    <script>
-        // Highlight current page in navigation
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
-        });
+    <!-- QUICK LINKS -->
+    <div class="quick-links">
+      <h2>Explore My Work</h2>
+      <div class="links-grid">
+        <a href="notes.html" class="link-card">
+          <div class="link-icon">📚</div>
+          <h3>Finance Notes</h3>
+          <p>Valuation principles, corporate finance concepts, and investment philosophy</p>
+        </a>
+        <a href="models.html" class="link-card">
+          <div class="link-icon">📊</div>
+          <h3>Models & Walkthroughs</h3>
+          <p>DCF, LBO, M&A models with detailed analysis and assumptions</p>
+        </a>
+        <a href="skills.html" class="link-card">
+          <div class="link-icon">💻</div>
+          <h3>Technical Skills</h3>
+          <p>Excel, Python, financial modelling, and valuation techniques</p>
+        </a>
+        <a href="sectors.html" class="link-card">
+          <div class="link-icon">📈</div>
+          <h3>Sector Tracking</h3>
+          <p>Automobile, Banking, FMCG, QSR, and Renewable Energy sectors</p>
+        </a>
+      </div>
+    </div>
 
-        // Fix for profile image if it fails to load
-        const profileImg = document.querySelector('.profile-img');
-        profileImg.onerror = function() {
-            this.src = 'https://via.placeholder.com/160x160?text=RV';
-        };
-    </script>
+    <!-- MAIN CONTENT FROM YOUR README -->
+    <div class="content">
+      <div class="section">
+        <h2>About Me</h2>
+        <p>I am a finance professional focused on valuation, financial modeling, and corporate finance. My interests lie in understanding businesses through fundamentals, cash flows, and capital allocation decisions.</p>
+        <p>Alongside finance, I actively follow geopolitics and maintain discipline through weightlifting and fitness.</p>
+      </div>
+
+      <div class="section">
+        <h2>Areas of Work</h2>
+        <ul>
+          <li>Valuation (DCF, Relative Valuation)</li>
+          <li>M&A and LBO Modeling</li>
+          <li>Financial Statement Analysis</li>
+          <li>Sector Research & Tracking</li>
+          <li>Python for Finance</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Portfolio Sections</h2>
+        <ul>
+          <li><strong>Valuation & Modeling</strong> – DCF, M&A, LBO, Banking, Renewable Energy models</li>
+          <li><strong>Sector Tracking</strong> – Automobile, QSR, Banking, FMCG, Renewables</li>
+          <li><strong>Model Walkthroughs</strong> – Key assumptions, drivers, and insights</li>
+          <li><strong>Learnings</strong> – Valuation, investment philosophy, and corporate finance concepts inspired by Aswath Damodaran</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p><strong>LinkedIn:</strong> <em>(add link later)</em></p>
+        <p><strong>Email:</strong> <em>(add later)</em></p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © 2026 Riddhesh Vartak · Built with GitHub Pages
+    </div>
+  </div>
+
+  <script>
+    // Highlight current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>
