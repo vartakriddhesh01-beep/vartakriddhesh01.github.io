@@ -1,0 +1,339 @@
+/* style.css - Add this to your website */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Container */
+.portfolio-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* Header with Blue Background - This fixes photo issue */
+.profile-header {
+    background: linear-gradient(120deg, #0a2a66 0%, #1e3a8a 100%);
+    padding: 40px;
+    color: white;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Fixed Photo Styling - No more "stuck on" look */
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Credentials as Badges */
+.credentials {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.credential-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.focus-statement {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    padding-left: 20px;
+}
+
+/* Navigation - Clean without lines */
+.nav-menu {
+    background: white;
+    padding: 15px 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0a2a66, #1e3a8a);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Main Content - No more A4 paper look */
+.main-content {
+    padding: 40px;
+    background: white;
+}
+
+/* Section Titles with Gradient */
+.section-title {
+    font-size: 28px;
+    color: #0a2a66;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #0a2a66, transparent);
+}
+
+/* Cards for Sections */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.card {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    border-color: #0a2a66;
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #0a2a66;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Content Sections - Your existing content styled nicely */
+.content-section {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.content-section h2 {
+    color: #0a2a66;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.content-section p {
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Lists Styling */
+.work-list {
+    list-style: none;
+}
+
+.work-list li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #334155;
+}
+
+.work-list li::before {
+    content: '•';
+    color: #0a2a66;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 40px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .profile-header {
+        padding: 30px 20px;
+    }
+    
+    .profile-info h1 {
+        font-size: 36px;
+    }
+    
+    .credentials {
+        justify-content: center;
+    }
+    
+    .focus-statement {
+        text-align: left;
+    }
+    
+    .nav-menu {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 30px 20px;
+    }
+    
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+    }
+    
+    .section-title {
+        display: block;
+        text-align: center;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info h1 {
+        font-size: 28px;
+    }
+    
+    .profile-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .credentials {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .credential-badge {
+        width: fit-content;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        padding: 8px 15px;
+        width: 100%;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+}
