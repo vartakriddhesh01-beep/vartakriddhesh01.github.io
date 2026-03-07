@@ -1,6 +1,4 @@
-/* style.css - Add this to your website */
-
-/* Reset and Base Styles */
+/* RESET ALL STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -8,98 +6,91 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    background: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     padding: 20px;
 }
 
-/* Main Container */
+/* MAIN CARD CONTAINER */
 .portfolio-card {
     max-width: 1200px;
     margin: 0 auto;
     background: white;
-    border-radius: 30px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* Header with Blue Background - This fixes photo issue */
-.profile-header {
-    background: linear-gradient(120deg, #0a2a66 0%, #1e3a8a 100%);
+/* HEADER WITH BLUE BACKGROUND */
+.portfolio-header {
+    background: #1e3a8a;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
     padding: 40px;
     color: white;
 }
 
-.profile-container {
+.header-content {
     display: flex;
     align-items: center;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-/* Fixed Photo Styling - No more "stuck on" look */
-.profile-image {
-    width: 180px;
-    height: 180px;
+/* PROFILE IMAGE - FIXED */
+.profile-img {
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.3);
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.profile-image:hover {
-    transform: scale(1.05);
-}
-
-.profile-info {
+.header-text {
     flex: 1;
 }
 
-.profile-info h1 {
+.header-text h1 {
     font-size: 48px;
     margin-bottom: 10px;
-    color: white;
 }
 
-.profile-info h2 {
+.header-text h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    opacity: 0.9;
+    opacity: 0.95;
     font-weight: 400;
 }
 
-/* Credentials as Badges */
-.credentials {
+/* CREDENTIAL BADGES */
+.badges {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
     margin: 20px 0;
 }
 
-.credential-badge {
-    background: rgba(255, 255, 255, 0.2);
+.badge {
+    background: rgba(255,255,255,0.2);
     padding: 8px 20px;
     border-radius: 50px;
     font-size: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
-.focus-statement {
+.focus-text {
     font-size: 16px;
     line-height: 1.6;
     opacity: 0.9;
-    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    border-left: 4px solid rgba(255,255,255,0.5);
     padding-left: 20px;
 }
 
-/* Navigation - Clean without lines */
-.nav-menu {
+/* NAVIGATION */
+.site-nav {
     background: white;
     padding: 15px 40px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .nav-links {
@@ -111,73 +102,54 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #4b5563;
     font-weight: 500;
     padding: 5px 0;
-    position: relative;
+    border-bottom: 2px solid transparent;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #0a2a66, #1e3a8a);
-    transition: width 0.3s;
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1e3a8a;
+    border-bottom-color: #1e3a8a;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Main Content - No more A4 paper look */
-.main-content {
+/* MAIN CONTENT AREA */
+.main-area {
     padding: 40px;
     background: white;
 }
 
-/* Section Titles with Gradient */
+/* SECTION TITLES */
 .section-title {
     font-size: 28px;
-    color: #0a2a66;
+    color: #1e3a8a;
     margin-bottom: 30px;
-    position: relative;
-    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e5e7eb;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, #0a2a66, transparent);
-}
-
-/* Cards for Sections */
+/* CARDS GRID */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
-.card {
-    background: #f8fafc;
+.info-card {
+    background: #f9fafb;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
     transition: all 0.3s;
     cursor: pointer;
-    border: 1px solid #e2e8f0;
 }
 
-.card:hover {
+.info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-    border-color: #0a2a66;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: #1e3a8a;
 }
 
 .card-icon {
@@ -185,155 +157,127 @@ body {
     margin-bottom: 20px;
 }
 
-.card h3 {
-    color: #0a2a66;
+.info-card h3 {
+    color: #1e3a8a;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-.card p {
-    color: #64748b;
-    line-height: 1.6;
-    font-size: 14px;
+.info-card p {
+    color: #6b7280;
+    line-height: 1.5;
 }
 
-/* Content Sections - Your existing content styled nicely */
-.content-section {
-    background: #f8fafc;
+/* CONTENT BLOCKS */
+.content-block {
+    background: #f9fafb;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 15px;
     margin: 30px 0;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e5e7eb;
 }
 
-.content-section h2 {
-    color: #0a2a66;
+.content-block h2 {
+    color: #1e3a8a;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-.content-section p {
-    color: #334155;
+.content-block p {
+    color: #4b5563;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Lists Styling */
-.work-list {
+/* LISTS */
+.work-items {
     list-style: none;
 }
 
-.work-list li {
+.work-items li {
     padding: 10px 0;
     padding-left: 25px;
     position: relative;
-    color: #334155;
+    color: #4b5563;
+    border-bottom: 1px dashed #e5e7eb;
 }
 
-.work-list li::before {
-    content: '•';
-    color: #0a2a66;
-    font-weight: bold;
+.work-items li:last-child {
+    border-bottom: none;
+}
+
+.work-items li::before {
+    content: "→";
+    color: #1e3a8a;
     position: absolute;
     left: 0;
+    font-weight: bold;
 }
 
-/* Footer */
+/* CONTACT INFO */
+.contact-info {
+    background: #f9fafb;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: #4b5563;
+}
+
+/* FOOTER */
 .footer {
     text-align: center;
     padding: 40px 0 20px;
-    color: #64748b;
-    border-top: 1px solid #e2e8f0;
+    color: #9ca3af;
+    border-top: 1px solid #e5e7eb;
     margin-top: 40px;
 }
 
-/* Mobile Responsive */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
     
-    .profile-container {
+    .portfolio-header {
+        padding: 30px 20px;
+    }
+    
+    .header-content {
         flex-direction: column;
         text-align: center;
         gap: 20px;
     }
     
-    .profile-header {
-        padding: 30px 20px;
-    }
-    
-    .profile-info h1 {
+    .header-text h1 {
         font-size: 36px;
     }
     
-    .credentials {
+    .badges {
         justify-content: center;
     }
     
-    .focus-statement {
+    .focus-text {
         text-align: left;
     }
     
-    .nav-menu {
+    .site-nav {
         padding: 15px 20px;
     }
     
     .nav-links {
-        gap: 15px;
         justify-content: center;
+        gap: 15px;
     }
     
-    .main-content {
+    .main-area {
         padding: 30px 20px;
-    }
-    
-    .section-title::after {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-    }
-    
-    .section-title {
-        display: block;
-        text-align: center;
     }
     
     .cards-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-info h1 {
-        font-size: 28px;
-    }
-    
-    .profile-image {
-        width: 140px;
-        height: 140px;
-    }
-    
-    .credentials {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .credential-badge {
-        width: fit-content;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .nav-links a {
-        padding: 8px 15px;
-        width: 100%;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 8px;
     }
 }
